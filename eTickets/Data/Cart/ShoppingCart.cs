@@ -35,7 +35,7 @@ namespace eTickets.Data.Cart
 
         public void AddItemToCart(Movie movie)
         {
-            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId );
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
             if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem()
@@ -86,8 +86,7 @@ namespace eTickets.Data.Cart
 
         public double GetShoppingCartTotal()
         {
-            var total = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n =>
-            n.Movie.Price * n.Amount).Sum();
+            var total = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Movie.Price * n.Amount).Sum();
             return total;
         }
 
